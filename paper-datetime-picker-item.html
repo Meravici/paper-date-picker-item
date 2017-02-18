@@ -3,14 +3,8 @@
 <link rel="import" href="../iron-icon/iron-icon.html">
 <link rel="import" href="../paper-item/paper-icon-item.html">
 <link rel="import" href="../paper-item/paper-item.html">
-<link rel="import" href="../paper-item/paper-item-body.html">
 <link rel="import" href="../paper-ripple/paper-ripple.html">
-<link rel="import" href="../iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../iron-flex-layout/iron-flex-layout-classes.html">
-<link rel="import" href="../paper-styles/color.html">
-<link rel="import" href="../paper-styles/default-theme.html">
-<link rel="import" href="../paper-styles/shadow.html">
-<link rel="import" href="../paper-styles/typography.html">
 <link rel="import" href="paper-date-picker-edit-dialog.html">
 <link rel="import" href="paper-time-picker-edit-dialog.html">
 <link rel="import" href="paper-date-picker-behaviors.html">
@@ -31,31 +25,65 @@
 	<template>
 		<style>
 			:host {
-				@apply(--layout-horizontal);
+				display: block;
 			}
 
-			:host[disabled] .text{
-				color: var(--disabled-text-color);
+			:host([disabled]) .icon{
+				opacity: 0.33;
 			}
 
 			.icon {
 				color: var(--disabled-text-color);
+				margin-right:10px;
+				margin-top: auto;
+				margin-bottom:10px;
 			}
 
-			.item[has-no-date] .text {
-				color: var(--secondary-text-color);
+			paper-item{
+				padding:0;
+			}
+
+			paper-input{
+				@apply(--layout-flex);
+				--paper-input-container-underline: {
+					display: none;
+				};
+				--paper-input-container-underline-focus: {
+					display: none;
+				};
+
+				--paper-input-container-input: {
+					text-align: center;
+				};
+			}
+
+			paper-item:first-of-type {
+				@apply(--layout-flex-3);
+				/*text-align: center;*/
+			}
+
+			paper-item:last-of-type {
+				@apply(--layout-flex);
+			}
+
+
+			.inline{
+				@apply(--layout-horizontal);
 			}
 		</style>
-
-		<paper-icon-item on-tap="_editDate" class="flex item" has-no-date$="[[_hasNoDate]]">
-			<paper-ripple class="fit"></paper-ripple>
-			<iron-icon icon="[[icon]]" item-icon class="icon"></iron-icon>
-			<paper-item-body class="text">[[_formattedDate]]</paper-item-body>
-		</paper-icon-item>
-		<paper-item class="flex text" on-tap="_editTime" hidden="[[_hasNoDate]]">
-			<paper-ripple class="fit"></paper-ripple>
-			[[_formattedTime]]
-		</paper-item>
+		<div class="inline">
+			<paper-item on-tap="_editDate" has-no-date$="[[_hasNoDate]]">
+				<paper-ripple class="fit"></paper-ripple>
+				<template is="dom-if" if="[[icon]]">
+					<iron-icon icon="[[icon]]" item-icon class="icon"></iron-icon>
+				</template>
+				<paper-input label="[[placeholder]]" value="[[_formattedDate]]" disabled$="[[disabled]]"></paper-input>
+			</paper-item>
+			<paper-item on-tap="_editTime" hidden="[[_hasNoDate]]">
+				<paper-ripple class="fit"></paper-ripple>
+				<paper-input value="[[_formattedTime]]" disabled$="[[disabled]]"></paper-input>
+			</paper-item>
+		</div>
 	</template>
 
 </dom-module>

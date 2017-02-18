@@ -111,7 +111,7 @@ Polymer.PaperDatePickerItemBehaviorImpl = {
 	// Format date
 	_getFormattedDate: function(date, placeholder, locale) {
 		if (!date) {
-			return placeholder;
+			return "";
 		}
 		return moment(date).locale(locale).format(this.dateFormat);
 	},

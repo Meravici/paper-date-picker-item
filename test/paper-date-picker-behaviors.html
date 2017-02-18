@@ -109,11 +109,11 @@
 					test('formats the date', function() {
 						expect(element._getFormattedDate(new Date(2015, 10, 17, 0, 0, 0, 0), null, 'en')).to.be.eql('Nov 17, 2015');
 					});
-					test('return placeholder if date is undefined', function() {
-						expect(element._getFormattedDate(undefined, 'A placeholder', 'en')).to.be.eql('A placeholder');
+					test('return empty string if date is undefined', function() {
+						expect(element._getFormattedDate(undefined, 'A placeholder', 'en')).to.be.eql('');
 					});
-					test('return placeholder if date is null', function() {
-						expect(element._getFormattedDate(null, 'A placeholder', 'en')).to.be.eql('A placeholder');
+					test('return empty string if date is null', function() {
+						expect(element._getFormattedDate(null, 'A placeholder', 'en')).to.be.eql('');
 					});
 
 					test('formats the time', function() {
@@ -137,11 +137,11 @@
 					test('formats the date', function() {
 						expect(element._getFormattedDate(new Date(2016, 10, 2, 0, 0, 0, 0), null, 'en')).to.be.eql('02/11/2016');
 					});
-					test('return placeholder if date is undefined', function() {
-						expect(element._getFormattedDate(undefined, 'A placeholder', 'en')).to.be.eql('A placeholder');
+					test('return empty string if date is undefined', function() {
+						expect(element._getFormattedDate(undefined, 'A placeholder', 'en')).to.be.eql('');
 					});
-					test('return placeholder if date is null', function() {
-						expect(element._getFormattedDate(null, 'A placeholder', 'en')).to.be.eql('A placeholder');
+					test('return empty string if date is null', function() {
+						expect(element._getFormattedDate(null, 'A placeholder', 'en')).to.be.eql('');
 					});
 
 					test('formats the time', function() {
