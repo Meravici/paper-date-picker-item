@@ -6,6 +6,7 @@
 <link rel="import" href="../paper-ripple/paper-ripple.html">
 <link rel="import" href="../iron-flex-layout/iron-flex-layout-classes.html">
 <link rel="import" href="paper-date-picker-edit-dialog.html">
+<link rel="import" href="paper-date-picker-style.html">
 <link rel="import" href="paper-time-picker-edit-dialog.html">
 <link rel="import" href="paper-date-picker-behaviors.html">
 
@@ -23,40 +24,7 @@
 <dom-module id="paper-datetime-picker-item">
 
 	<template>
-		<style>
-			:host {
-				display: block;
-			}
-
-			:host([disabled]) .icon{
-				opacity: 0.33;
-			}
-
-			.icon {
-				color: var(--disabled-text-color);
-				margin-right:10px;
-				margin-top: auto;
-				margin-bottom:10px;
-			}
-
-			paper-item{
-				padding:0;
-			}
-
-			paper-input{
-				@apply(--layout-flex);
-				--paper-input-container-underline: {
-					display: none;
-				};
-				--paper-input-container-underline-focus: {
-					display: none;
-				};
-
-				--paper-input-container-input: {
-					text-align: center;
-				};
-			}
-
+		<style include="paper-date-picker-style">
 			paper-item:first-of-type {
 				@apply(--layout-flex-3);
 				/*text-align: center;*/
@@ -64,11 +32,6 @@
 
 			paper-item:last-of-type {
 				@apply(--layout-flex);
-			}
-
-
-			.inline{
-				@apply(--layout-horizontal);
 			}
 		</style>
 		<div class="inline">

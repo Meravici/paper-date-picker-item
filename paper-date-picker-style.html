@@ -1,0 +1,47 @@
+<!-- shared-styles.html -->
+<dom-module id="paper-date-picker-style">
+    <template>
+        <style>
+            :host {
+                display: block;
+            }
+
+            :host([disabled]) .icon {
+                opacity: 0.33;
+            }
+
+            .icon {
+                color: var(--disabled-text-color);
+                margin-right: 10px;
+                margin-top: auto;
+                margin-bottom: 10px;
+            }
+
+            paper-item {
+                padding: 0;
+            }
+
+            paper-input {
+                @apply(--layout-flex);
+                --paper-input-container-underline: {
+                    display: none;
+                };
+                --paper-input-container-underline-focus: {
+                    display: none;
+                };
+
+                /*--paper-input-container-input: {*/
+                    /*text-align: center;*/
+                /*};*/
+            }
+
+            paper-item{
+                @apply(--layout-flex);
+            }
+
+            .inline {
+                @apply(--layout-horizontal);
+            }
+        </style>
+    </template>
+</dom-module>
