@@ -37,10 +37,9 @@
 		<div class="inline">
 			<paper-item on-tap="_editDate" has-no-date$="[[_hasNoDate]]">
 				<paper-ripple class="fit"></paper-ripple>
-				<template is="dom-if" if="[[icon]]">
-					<iron-icon icon="[[icon]]" item-icon class="icon"></iron-icon>
-				</template>
-				<paper-input label="[[placeholder]]" value="[[_formattedDate]]" disabled$="[[disabled]]"></paper-input>
+				<paper-input label="[[placeholder]]" value="[[_formattedDate]]" disabled$="[[disabled]]">
+					<iron-icon icon="[[icon]]" prefix></iron-icon>
+				</paper-input>
 			</paper-item>
 			<paper-item on-tap="_editTime" hidden="[[_hasNoDate]]">
 				<paper-ripple class="fit"></paper-ripple>

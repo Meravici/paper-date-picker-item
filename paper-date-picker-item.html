@@ -27,11 +27,10 @@
 
         <paper-item on-tap="_editDate" has-no-date$="[[!date]]">
             <paper-ripple class="fit"></paper-ripple>
-            <template is="dom-if" if="[[icon]]">
-                <iron-icon icon="[[icon]]" item-icon class="icon"></iron-icon>
-            </template>
             <paper-input label="[[placeholder]]" value="[[_getFormattedDate(date, placeholder, locale)]]"
-                         disabled$="[[disabled]]"></paper-input>
+                         disabled$="[[disabled]]">
+                <iron-icon icon="[[icon]]" prefix></iron-icon>
+            </paper-input>
         </paper-item>
     </template>
 
